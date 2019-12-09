@@ -1,14 +1,14 @@
 require_relative './match'
 
 class App
-  def initialize(couples, base_url)
-    @couples = couples
+  def initialize(relationships, base_url)
+    @relationships = relationships
     @base_url = base_url
   end
 
   def get_matches
     begin
-      return generate_matches(@couples.each(&:reset!))
+      return generate_matches(@relationships.each(&:reset!))
     rescue ExhaustedCandidatePoolException
       puts "Matching could not be completed, no more candidates available. Redrawing..."
       get_matches
@@ -17,15 +17,15 @@ class App
 
   private
 
-  def generate_matches(couples)
+  def generate_matches(relationships)
     matches = []
-    couples
+    relationships
         .shuffle
         .each do |couple|
-      2.times do
+      couple.people_count.times do
         giver = couple.sample_giver
 
-        random_couples = couples
+        random_couples = relationships
                              .reject { |c| c == couple }
                              .select { |c| c.receiver_samples_available? }
 

@@ -1,6 +1,7 @@
 require_relative '../../src/app'
 require_relative '../../src/person'
 require_relative '../../src/couple'
+require_relative '../../src/single'
 
 describe App do
   def find_partner(couples:, person:)
@@ -21,11 +22,13 @@ describe App do
         person2b = Person.new(name: "Person 2b", email: "person2b@email.com")
         person3a = Person.new(name: "Person 3a", email: "person3a@email.com")
         person3b = Person.new(name: "Person 3b", email: "person3b@email.com")
+        person4 = Person.new(name: "Person 4", email: "person4@email.com")
 
         couples = [
             Couple.new(person1a, person1b),
             Couple.new(person2a, person2b),
             Couple.new(person3a, person3b),
+            Single.new(person4)
         ]
 
         base_url = "http://example.com"
@@ -33,7 +36,7 @@ describe App do
 
         matches = App.new(couples, base_url).get_matches
 
-        expect(matches.length).to eq 6
+        expect(matches.length).to eq 7
 
         matches.each do |match|
           giver = match.giver

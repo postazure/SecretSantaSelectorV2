@@ -15,5 +15,4 @@ Once you run the application locally using `ruby run.rb` it will generate some U
 1. When your participants access their URLs they will see their assignments
 
 # Known Issues
-- This application only handles couples, no single participants.
 - Cannot be used with less than 4 people. 

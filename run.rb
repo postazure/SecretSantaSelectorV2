@@ -2,6 +2,7 @@
 
 require_relative 'src/app'
 require_relative 'src/couple'
+require_relative 'src/single'
 require_relative 'src/person'
 
 # Edit the Couples list to your desired configuration
@@ -18,6 +19,9 @@ couples = [
         Person.new(name: "frank1", email: "frank1@email.com"),
         Person.new(name: "frank2", email: "frank2@email.com"),
     ),
+    Single.new(
+        Person.new(name: "alone on xmas", email: "allalone@example.com")
+    )
 ]
 
 base_url = "http://postazure.com/SecretSantaSelectorV2"
