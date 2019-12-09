@@ -18,7 +18,7 @@ couples = [
         Person.new(name: "frank2", email: "frank2@email.com"),
     ),
 ]
-base_url = "http://example.com/select"
+base_url = "http://postazure.com/SecretSantaSelectorV2"
 selections = App.new(couples, base_url).get_matches
 selections.each do |selection|
   puts(selection)
