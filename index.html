@@ -10,9 +10,132 @@
 </head>
 
 <body>
-<p>Hello <span id="giver-name"/></p>
-<p>Please give a gift to <span id="receiver-name"></span></p>
+<style>
+    html {
+        height: 100%;
+        width: 100%;
+    }
 
+    body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        font-family: "Lato", sans-serif;
+        background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/281684/contemporary_china_2.png);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .pen-title {
+        text-align: center;
+    }
+
+    .click-me {
+        display: inline-block;
+        position: relative;
+        bottom: -50px;
+        width: 100%;
+        text-align: center;
+        color: #999;
+    }
+
+    .pen-description {
+        text-align: center;
+    }
+
+    .card {
+        width: 300px;
+        height: 400px;
+        position: relative;
+        -webkit-perspective: 700;
+        margin: 100px auto;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .card div {
+        margin: 0;
+        color: #fff;
+    }
+
+    .card div.middle {
+        font-weight: 900;
+        margin: 100px 0;
+    }
+
+    .card:hover .face {
+        -webkit-transition: all 0.3s ease-out;
+    }
+
+    .face {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: visible;
+        -webkit-transition: all 0.5s ease-out;
+        -webkit-transform-origin: 0 0;
+    }
+
+    .front-face {
+        -webkit-transform: rotateY(-20deg);
+        z-index: 2;
+        background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/281684/mountains_cropped.jpg), #27ae60;
+        font-size: 2em;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .front-face .title {
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+    }
+
+    .back-face {
+        background: #e74c3c;
+        padding: 15px;
+        text-align: center;
+        box-sizing: border-box;
+        -webkit-transform: rotateY(0deg);
+        z-index: 1;
+        font-size: 1.2em;
+    }
+
+    .card:hover .front-face {
+        -webkit-transform: rotateY(-35deg);
+    }
+
+    .card:active .front-face {
+        -webkit-transform: rotateY(-165deg);
+    }
+
+
+</style>
+
+<h1 class="pen-title">Hello <span id="giver-name"/></h1>
+<div class='cards'>
+    <span class="click-me">CLICK THE CARD</span>
+    <div class='card'>
+        <div class='face front-face'>
+            <p class="title">Merry Christmas!</p>
+        </div>
+        <div>
+            <div class="face back-face">
+                <p class="top">Please give a gift to</p>
+                <div class="middle">
+                    <h2><span id="receiver-name"></span></h2>
+                </div>
+                <p class="bottom">Only <span id="days"></span> nights until christmas!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p class="pen-description">Credit for the card design: <a href="https://codepen.io/search/pens?q=%23CSSChristmasCard" target="_blank">#CSSChristmasCard</a></p>
 
 <script>
     let giverNameNode = document.getElementById("giver-name");
@@ -21,6 +144,16 @@
 
     giverNameNode.textContent = json.giver_name;
     receiverNameNode.textContent = json.receiver_name;
+
+    (function () {
+        var oneDay = 24 * 60 * 60 * 1000;
+        var secondDate = new Date('December 25, ' + new Date().getFullYear() + ' 00:00:00');
+        var firstDate = new Date();
+        var days = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime()) / (oneDay)));
+        document.getElementById('days').innerHTML = days;
+    })();
 </script>
 </body>
 </html>
+
+
