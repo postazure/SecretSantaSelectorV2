@@ -1,0 +1,26 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Secret Santa Selector</title>
+    <meta name="description" content="Secret Santa Selector">
+    <meta name="author" content="postazure">
+</head>
+
+<body>
+<p>Hello <span id="giver-name"/></p>
+<p>Please give a gift to <span id="receiver-name"></span></p>
+
+
+<script>
+    let giverNameNode = document.getElementById("giver-name");
+    let receiverNameNode = document.getElementById("receiver-name");
+    let json = JSON.parse(atob(location.search.replace("?q=", "")));
+
+    giverNameNode.textContent = json.giver_name;
+    receiverNameNode.textContent = json.receiver_name;
+</script>
+</body>
+</html>
