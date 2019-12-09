@@ -109,18 +109,16 @@
         -webkit-transform: rotateY(-35deg);
     }
 
-    .card:active .front-face {
+    .card:active .front-face, .open-card {
         -webkit-transform: rotateY(-165deg);
     }
-
 
 </style>
 
 <h1 class="pen-title">Hello <span id="giver-name"/></h1>
 <div class='cards'>
-    <span class="click-me">CLICK THE CARD</span>
     <div class='card'>
-        <div class='face front-face'>
+        <div class='face front-face' id="front-face">
             <p class="title">Merry Christmas!</p>
         </div>
         <div>
@@ -152,6 +150,10 @@
         var days = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime()) / (oneDay)));
         document.getElementById('days').innerHTML = days;
     })();
+
+    setTimeout(function () {
+        document.getElementById('front-face').classList.add("open-card")
+    }, 3000)
 </script>
 </body>
 </html>
