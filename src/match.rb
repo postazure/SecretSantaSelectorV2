@@ -15,6 +15,10 @@ class Match
     "#{giver.name}'s url is #{construct_url}"
   end
 
+  def message
+    "Hello #{giver.name},\nFollow this link to see your recipient #{construct_url}"
+  end
+
   private
 
   def construct_url

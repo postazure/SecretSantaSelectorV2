@@ -1,8 +1,8 @@
 class Person
-  attr_reader :name, :email
+  attr_reader :name, :phone
 
-  def initialize(name:, email:)
+  def initialize(name:, phone:)
     @name = name
-    @email = email
+    @phone = phone
   end
 end

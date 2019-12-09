@@ -6,8 +6,8 @@ require_relative '../../src/Person'
 describe Match do
   describe 'to_s' do
     it 'should print out the base64 encoded json for the giver page' do
-      giver = Person.new(name: "max", email: "max@emai.com")
-      receiver = Person.new(name: "rebecca", email: "rebecca@emai.com")
+      giver = Person.new(name: "max", phone: "max-phone")
+      receiver = Person.new(name: "rebecca", phone: "rebecca-phone")
       base_url = "https://example.com/selection"
 
       expected_json = {
@@ -21,8 +21,8 @@ describe Match do
     end
 
     it 'should have a query value that can be decoded to json' do
-      giver = Person.new(name: "max", email: "max@emai.com")
-      receiver = Person.new(name: "rebecca", email: "rebecca@emai.com")
+      giver = Person.new(name: "max", phone: "max-phone")
+      receiver = Person.new(name: "rebecca", phone: "rebecca-phone")
       base_url = "https://example.com/selection"
 
 

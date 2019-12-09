@@ -16,13 +16,13 @@ describe App do
         # Since this is random drawing we should make sure it holds up to multiple attempts.
 
 
-        person1a = Person.new(name: "Person 1a", email: "person1a@email.com")
-        person1b = Person.new(name: "Person 1b", email: "person1b@email.com")
-        person2a = Person.new(name: "Person 2a", email: "person2a@email.com")
-        person2b = Person.new(name: "Person 2b", email: "person2b@email.com")
-        person3a = Person.new(name: "Person 3a", email: "person3a@email.com")
-        person3b = Person.new(name: "Person 3b", email: "person3b@email.com")
-        person4 = Person.new(name: "Person 4", email: "person4@email.com")
+        person1a = Person.new(name: "Person 1a", phone: "person1a-phone")
+        person1b = Person.new(name: "Person 1b", phone: "person1b-phone")
+        person2a = Person.new(name: "Person 2a", phone: "person2a-phone")
+        person2b = Person.new(name: "Person 2b", phone: "person2b-phone")
+        person3a = Person.new(name: "Person 3a", phone: "person3a-phone")
+        person3b = Person.new(name: "Person 3b", phone: "person3b-phone")
+        person4 = Person.new(name: "Person 4", phone: "person4-phone")
 
         couples = [
             Couple.new(person1a, person1b),
